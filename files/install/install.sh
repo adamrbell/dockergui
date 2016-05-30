@@ -51,6 +51,9 @@ apt-get install -qy --force-yes --no-install-recommends openjdk-7-jre \
                                                         libfreerdp-dev \
                                                         libcairo2-dev \
                                                         tomcat7
+                                                        
+ # Install Tint2
+ apt-get install -y tint2
 
 
 #########################################
@@ -295,6 +298,8 @@ EOT
 # Openbox User nobody autostart
 cat <<'EOT' > /nobody/.config/openbox/autostart
 # Programs that will run after Openbox has started
+
+(sleep 2s && tint2) &
 
 xsetroot -solid black -cursor_name left_ptr
 if [ -e /startapp.sh ]; then 
